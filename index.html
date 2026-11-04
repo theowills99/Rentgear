@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>[hidden]{display:none!important}</style>
+<title>Rent Gear Oslo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600..900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: dark-first, black and white with red only on signals of trust (code word, verified, CTA band); tall condensed display type, generous rows */
+:root{
+  --bg:#0B0A0B; --surface:#141314; --raised:#1C1B1C; --fg:#F5F3F2; --muted:#9C989A; --line:#2B2829;
+  --red:#C8102E; --red-deep:#A10C24; --red-ink:#FFFFFF; --red-soft:rgba(200,16,46,.14);
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
+  --bg:#FFFFFF;--surface:#F4F3F3;--raised:#FFFFFF;--fg:#0B0A0B;--muted:#5F5B5D;--line:#E3E0E1;
+  --red:#C8102E;--red-ink:#FFFFFF;--red-soft:rgba(200,16,46,.08);color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#FFFFFF;--surface:#F4F3F3;--raised:#FFFFFF;--fg:#0B0A0B;--muted:#5F5B5D;--line:#E3E0E1;
+  --red:#C8102E;--red-ink:#FFFFFF;--red-soft:rgba(200,16,46,.08);color-scheme:light}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.95;margin:0;text-wrap:balance;letter-spacing:0}
+h2{font-size:clamp(2.4rem,5.4vw,4rem);text-transform:uppercase}
+h3{font-size:1.4rem;line-height:1.05;font-weight:700;letter-spacing:0}
+p{margin:0}
+a{color:inherit}
+section{padding-block:clamp(64px,9vw,112px)}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow.red{color:var(--muted)}
+.lede{color:var(--muted);font-size:1.06rem;max-width:58ch}
+.head{display:grid;gap:14px;margin-bottom:48px;max-width:760px}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+button{font:inherit;color:inherit;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;padding:.95em 1.5em;background:var(--fg);color:var(--bg);border:1px solid var(--fg);text-decoration:none;font-weight:600;font-size:.9rem;letter-spacing:.02em;transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:var(--fg)}
+.btn.red{background:var(--red);border-color:var(--red);color:var(--red-ink)}
+.btn.red:hover{background:var(--red-deep);border-color:var(--red-deep);color:var(--red-ink)}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--fg)}
+
+/* Header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.logo{font-family:var(--display);font-weight:900;font-size:1.5rem;letter-spacing:.01em;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.logo .mark{width:12px;height:12px;background:var(--red);display:inline-block}
+.logo span{font-weight:600}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.88rem}
+.nav ul a{text-decoration:none;color:var(--muted)}
+.nav ul a:hover{color:var(--fg)}
+.nav .btn{padding:.6em 1.1em;font-size:.82rem}
+@media (max-width:880px){.nav ul{display:none}}
+.nav-right{display:flex;align-items:center;gap:10px}
+.lang{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);border:1px solid var(--line);padding:7px 10px}
+.lang:hover{color:var(--fg);border-color:var(--fg)}
+
+/* Hero */
+.hero{padding-block:clamp(40px,7vw,88px) clamp(56px,8vw,96px)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(36px,6vw,80px);align-items:center}
+.hero h1{font-size:clamp(3rem,8vw,5.8rem);text-transform:uppercase;margin-top:18px}
+@media (max-width:480px){.field{flex-direction:column}}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero .lede{margin-top:22px}
+@media (max-width:880px){.hero-grid{grid-template-columns:1fr}}
+
+/* Join form */
+.join{margin-top:32px;display:grid;gap:14px;max-width:520px}
+.roles{display:flex;flex-wrap:wrap;gap:8px;border:0;padding:0;margin:0}
+.roles legend{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;padding:0}
+.roles input{position:absolute;opacity:0;pointer-events:none}
+.roles label{padding:8px 14px;border:1px solid var(--line);font-size:.86rem;cursor:pointer;transition:border-color .2s}
+.roles label:hover{border-color:var(--muted)}
+.roles input:checked + label{border-color:var(--fg);background:var(--fg);color:var(--bg)}
+.roles input:focus-visible + label{outline:2px solid var(--red);outline-offset:2px}
+.field{display:flex;border:1px solid var(--line);background:var(--surface)}
+.field input{flex:1;min-width:0;background:transparent;border:0;color:var(--fg);font:inherit;padding:14px 16px;outline:none}
+.field input::placeholder{color:var(--muted)}
+.field:focus-within{border-color:var(--fg)}
+.field .btn{border:0}
+.fineprint{font-size:.8rem;color:var(--muted)}
+.joined{border:1px solid var(--line);background:var(--surface);padding:20px;display:grid;gap:6px;max-width:520px;margin-top:32px}
+.joined b{font-family:var(--display);font-size:1.4rem}
+
+/* Live photo card */
+.live{background:var(--surface);border:1px solid var(--line);padding:16px;display:grid;gap:14px;max-width:440px;width:100%;justify-self:center}
+.live-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.rec{display:inline-flex;align-items:center;gap:6px;color:var(--fg)}
+.rec i{width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.25}}
+.frame{position:relative;aspect-ratio:4/3.4;background:radial-gradient(120% 90% at 50% 100%,var(--raised),var(--bg));overflow:hidden;max-width:100%}
+.frame .c{position:absolute;width:22px;height:22px;border-color:var(--fg);border-style:solid;opacity:.7}
+.frame .c1{top:12px;left:12px;border-width:2px 0 0 2px}.frame .c2{top:12px;right:12px;border-width:2px 2px 0 0}
+.frame .c3{bottom:12px;left:12px;border-width:0 0 2px 2px}.frame .c4{bottom:12px;right:12px;border-width:0 2px 2px 0}
+.item{position:absolute;left:24%;top:24%;width:30%;height:52%;border-radius:40% 40% 18% 18%/30% 30% 12% 12%;background:linear-gradient(105deg,#2C2A2B 0%,#4A4648 38%,#1A1819 70%);box-shadow:0 22px 30px -14px rgba(0,0,0,.6);transform:rotate(-8deg)}
+.item::after{content:"";position:absolute;left:18%;top:8%;width:16%;height:60%;border-radius:20px;background:rgba(255,255,255,.18)}
+.codeword{position:absolute;right:9%;bottom:16%;background:#F5F3F2;color:#0B0A0B;padding:10px 14px 8px;transform:rotate(4deg);font-family:var(--mono);box-shadow:0 10px 18px -8px rgba(0,0,0,.5)}
+.codeword small{display:block;font-size:.58rem;letter-spacing:.14em;color:#C8102E;text-transform:uppercase}
+.codeword b{font-size:1.15rem;letter-spacing:.06em}
+.checks{display:grid;gap:8px;list-style:none;margin:0;padding:0}
+.checks li{display:flex;justify-content:space-between;gap:12px;font-size:.84rem;border-top:1px solid var(--line);padding-top:8px}
+.checks li span:last-child{font-family:var(--mono);font-size:.76rem;color:var(--fg);white-space:nowrap}
+.ok::before{content:"";display:inline-block;width:8px;height:8px;background:var(--red);margin-right:8px;vertical-align:1px}
+.live .btn{padding:.7em 1em;font-size:.8rem}
+
+/* Promise strip */
+.promise{border-block:1px solid var(--line);padding-block:26px}
+.promise .row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.promise b{display:block;font-family:var(--display);font-weight:700;font-size:1.25rem;margin-bottom:4px}
+.promise span{font-size:.86rem;color:var(--muted)}
+@media (max-width:900px){.promise .row{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.promise .row{grid-template-columns:1fr}}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--fg)}
+.step{padding:24px 24px 8px 0;display:grid;gap:12px;align-content:start;min-width:0}
+.step + .step{padding-left:24px;border-left:1px solid var(--line)}
+.step .n{font-family:var(--display);font-weight:900;font-size:3.2rem;line-height:1;color:var(--fg)}
+.step p{color:var(--muted);font-size:.93rem}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}.step:nth-child(3){padding-left:0;border-left:0}.step{padding-bottom:28px}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}.step,.step + .step{padding-left:0;border-left:0;border-bottom:1px solid var(--line)}}
+
+/* Safety */
+.safety{background:var(--surface)}
+.safe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.safe{background:var(--surface);padding:28px 24px;display:grid;gap:10px;align-content:start;min-width:0}
+.safe .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.safe p{color:var(--muted);font-size:.92rem}
+@media (max-width:900px){.safe-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.safe-grid{grid-template-columns:1fr}}
+
+/* Hygiene */
+.hyg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.col{border:1px solid var(--line);padding:24px;display:grid;gap:16px;align-content:start;min-width:0}
+.col.yes{border-color:var(--fg)}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+.status i{width:10px;height:10px;display:inline-block}
+.yes .status i{background:var(--fg)}
+.later .status i{border:1px solid var(--fg)}
+.no .status{color:var(--fg)}
+.no .status i{background:var(--red)}
+.col ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.92rem}
+.col li{border-top:1px solid var(--line);padding-top:8px}
+.col p{font-size:.86rem;color:var(--muted)}
+.no li{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--red)}
+@media (max-width:900px){.hyg{grid-template-columns:1fr}}
+
+/* Money */
+.money{background:var(--surface)}
+.money-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:start}
+.panel{background:var(--bg);border:1px solid var(--line);padding:clamp(20px,3.5vw,32px);display:grid;gap:18px;min-width:0}
+.panel h3{font-size:1.6rem}
+.lines{display:grid;gap:0;font-variant-numeric:tabular-nums}
+.lines div{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.lines div > span:last-child{font-family:var(--mono);white-space:nowrap}
+.lines .tot{border-bottom:0;border-top:1px solid var(--fg);font-weight:600}
+.lines small{display:block;color:var(--muted);font-size:.78rem}
+.timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:relative;margin-top:6px}
+.timeline::before{content:"";position:absolute;top:7px;left:8px;right:8px;height:1px;background:var(--line)}
+.tl{position:relative;display:grid;gap:6px;padding-right:10px;overflow-wrap:break-word;hyphens:auto;font-size:.8rem;color:var(--muted)}
+.tl i{width:15px;height:15px;border-radius:50%;background:var(--bg);border:2px solid var(--fg);position:relative}
+.tl:last-child i{background:var(--red);border-color:var(--red)}
+.tl b{color:var(--fg);font-size:.86rem}
+.calc label{display:flex;justify-content:space-between;gap:12px;font-size:.9rem}
+.calc label output{font-family:var(--mono)}
+.calc input[type=range]{width:100%;accent-color:var(--red)}
+.earn{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;border-top:1px solid var(--fg);padding-top:16px}
+.earn b{font-family:var(--display);font-weight:900;font-size:clamp(2.8rem,6vw,3.8rem);line-height:1;font-variant-numeric:tabular-nums}
+.earn span{color:var(--muted);font-size:.88rem}
+.bul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:.9rem;color:var(--muted)}
+.bul li::before{content:"— ";color:var(--muted)}
+@media (max-width:880px){.money-grid{grid-template-columns:1fr}}
+
+/* Handoff */
+.hand{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hand .col{gap:12px}
+.pill{display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border:1px solid var(--line);color:var(--muted);justify-self:start}
+.pill.live-now{background:var(--red);border-color:var(--red);color:var(--red-ink)}
+@media (max-width:760px){.hand{grid-template-columns:1fr}}
+
+/* Ladder */
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:40px}
+.rung{border-top:3px solid var(--line);padding-top:14px;display:grid;gap:6px;align-content:start;min-width:0}
+.rung:nth-child(2){border-color:color-mix(in srgb,var(--red) 45%,var(--line))}
+.rung:nth-child(3){border-color:color-mix(in srgb,var(--red) 75%,var(--line))}
+.rung:nth-child(4){border-color:var(--red)}
+.rung .when{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rung p{font-size:.92rem}
+@media (max-width:760px){.ladder{grid-template-columns:1fr 1fr;row-gap:24px}}
+
+/* FAQ */
+.faq{display:grid;gap:0;border-top:1px solid var(--line);max-width:860px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;position:relative;font-weight:600;font-size:1.02rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:16px;font-family:var(--mono);font-size:1.3rem;color:var(--muted)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--muted);padding-bottom:22px;max-width:68ch}
+
+/* CTA band */
+.band{background:var(--red);color:var(--red-ink)}
+.band .wrap{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.band h2{font-size:clamp(2.6rem,6.4vw,4.6rem)}
+.band p{opacity:.88;margin-top:10px;max-width:46ch}
+.band .btn{background:#0B0A0B;border-color:#0B0A0B;color:#FFFFFF}
+.band .btn:hover{background:transparent;color:var(--red-ink);border-color:var(--red-ink)}
+
+/* Footer */
+footer{padding-block:56px 36px;border-top:1px solid var(--line)}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px}
+.foot h4{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:400;color:var(--muted);margin:0 0 12px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.9rem}
+.foot a{text-decoration:none}
+.foot p{color:var(--muted);font-size:.88rem;margin-top:12px;max-width:36ch}
+.legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.04em}
+@media (max-width:760px){.foot{grid-template-columns:1fr 1fr}.foot > div:first-child{grid-column:1/-1}}
+
+/* Age gate */
+.gate{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:24px max(20px,env(safe-area-inset-right,0px)) 24px max(20px,env(safe-area-inset-left,0px));background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(16px)}
+.gate-card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--red);max-width:440px;width:100%;padding:40px 32px;display:grid;gap:16px;justify-items:start}
+.gate-card p{color:var(--muted);font-size:.94rem}
+.gate-card .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+
+.hero-grid{grid-template-columns:1fr}
+.film-stage{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));margin-top:clamp(40px,6vw,64px)}
+.film{margin:0 auto;max-width:1600px;position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--line);overflow:hidden;transform:scale(.84);transform-origin:50% 0;border-radius:22px;will-change:transform}
+.film video{width:100%;height:100%;display:block;object-fit:cover}
+.film-btn{position:absolute;right:14px;bottom:14px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,0,0,.6);color:#fff;border:1px solid rgba(255,255,255,.3);padding:7px 11px;backdrop-filter:blur(6px)}
+.film-btn:hover{border-color:#fff}
+.safe-top{display:grid;grid-template-columns:1fr minmax(0,420px);gap:clamp(32px,5vw,64px);align-items:center;margin-bottom:48px}
+.safe-top .head{margin-bottom:0}
+.safe-top .live{background:var(--bg)}
+@media (max-width:880px){.safe-top{grid-template-columns:1fr}}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--fg)}
+.sig{padding:28px 28px 28px 0;display:grid;gap:10px;align-content:start;min-width:0}
+.sig + .sig{padding-left:28px;border-left:1px solid var(--line)}
+.sig .big{font-family:var(--display);font-weight:900;font-size:clamp(2.2rem,4vw,3.2rem);line-height:1}
+.sig p{color:var(--muted);font-size:.93rem}
+@media (max-width:820px){.proof-grid{grid-template-columns:1fr}.sig,.sig + .sig{padding:24px 0;border-left:0;border-bottom:1px solid var(--line)}}
+.quote{margin:56px 0 0;border:2px dashed var(--red);padding:clamp(24px,4vw,44px);display:grid;gap:18px;max-width:900px}
+.prov{justify-self:start;background:var(--red);color:var(--red-ink);font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px}
+.quote blockquote{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.15;text-wrap:pretty}
+.quote figcaption{color:var(--muted);font-size:.9rem}
+.quote figcaption b{color:var(--fg)}
+.ph{background:var(--red-soft);color:var(--fg);padding:0 4px;border-bottom:1px dashed var(--red)}
+@media (prefers-reduced-motion:reduce){.film{transform:none!important;border-radius:0!important}*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+.logo b{font-weight:900}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.nav .btn{white-space:nowrap}
+.short{display:none}
+@media (max-width:520px){.long{display:none}.short{display:inline}.lang{padding:6px 8px}
+  .nav{gap:10px}.nav-right{gap:6px}
+  header .logo{font-size:1.25rem;gap:6px}header .logo .mark{width:10px;height:10px}
+  header .langs button{padding:6px 7px}
+  .nav .btn{padding:.55em .8em}}
+@media (max-width:359px){.nav .btn{display:none}}
+.later{margin-top:28px;font-size:.84rem;color:var(--muted);font-family:var(--mono);letter-spacing:.02em}
+.hyg.two{grid-template-columns:1fr 1fr}
+@media (max-width:900px){.hyg.two{grid-template-columns:1fr}}
+.note{margin-top:32px;border-left:2px solid var(--fg);padding:4px 0 4px 20px;display:grid;gap:8px;max-width:72ch}
+.note p{color:var(--muted)}
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px);align-items:start}
+.facts{display:grid;gap:20px;min-width:0;border-top:1px solid var(--fg);padding-top:20px}
+.facts ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.facts li{padding-left:20px;position:relative;color:var(--muted);font-size:.95rem}
+.facts li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;background:var(--red)}
+.facts li b{color:var(--fg)}
+.facts dl{margin:0;border-top:1px solid var(--line)}
+.facts dl div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.facts dt{color:var(--muted);font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+.facts dd{margin:0;text-align:right;min-width:0}
+@media (max-width:880px){.about{grid-template-columns:1fr}}
+.legal a{color:inherit}
+.langs{display:inline-flex;border:1px solid var(--line)}
+.langs button{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;padding:7px 9px;background:none;border:0;color:var(--muted)}
+.langs button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.langs button:hover{color:var(--fg)}
+.langs button[aria-pressed="true"]:hover{color:var(--bg)}
+
+.cartbtn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:none;padding:6px 10px;font-size:.82rem;color:var(--fg);white-space:nowrap}
+.cartbtn:hover{border-color:var(--fg)}
+.cartbtn b{background:var(--red);color:var(--red-ink);font-family:var(--mono);font-size:.7rem;min-width:20px;height:20px;display:inline-grid;place-items:center;padding:0 5px}
+.cartbtn .sub{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+@media (max-width:620px){.cartbtn .lbl,.cartbtn .sub{display:none}.cartbtn{padding:6px 8px}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{border:1px solid var(--line);background:none;padding:8px 14px;font-size:.86rem;color:var(--fg)}
+.chip:hover{border-color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);background:var(--bg);display:grid;grid-template-rows:auto 1fr;min-width:0}
+.thumb{aspect-ratio:4/3;max-width:100%;background:radial-gradient(120% 90% at 50% 100%,#262325,#121112);position:relative;overflow:hidden}
+.thumb .ex{position:absolute;left:10px;top:10px;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#cfcac6;border:1px solid rgba(255,255,255,.25);padding:3px 6px}
+.shape{position:absolute;left:50%;top:50%;transform:translate(-50%,-56%) rotate(-12deg);box-shadow:0 22px 26px -14px rgba(0,0,0,.6)}
+.shape::after{content:"";position:absolute;left:20%;top:8%;width:14%;height:55%;border-radius:20px;background:rgba(255,255,255,.22)}
+.s-wand{width:16%;height:66%;border-radius:40px}
+.s-plug{width:24%;height:46%;border-radius:50% 50% 30% 30%/62% 62% 22% 22%}
+.s-dildo{width:19%;height:64%;border-radius:46% 46% 22% 22%/22% 22% 10% 10%}
+.s-couple{width:40%;height:24%;border-radius:60% 40% 55% 45%/60% 60% 40% 40%;transform:translate(-50%,-50%) rotate(-18deg)}
+.m-sil{background:linear-gradient(105deg,#2C2A2B,#4c4849 38%,#1A1819 72%)}
+.m-bone{background:linear-gradient(105deg,#a8a29b,#ebe7e2 38%,#8f8881 72%)}
+.m-glass{background:linear-gradient(105deg,rgba(255,255,255,.12),rgba(255,255,255,.5) 40%,rgba(255,255,255,.1) 72%);border:1px solid rgba(255,255,255,.45)}
+.m-steel{background:linear-gradient(105deg,#5f6367,#dadde0 40%,#4f5357 72%)}
+.card .body{padding:16px;display:grid;gap:8px;align-content:start}
+.card h3{font-family:var(--body);font-size:1rem;font-weight:600;line-height:1.3}
+.card .meta{color:var(--muted);font-size:.84rem}
+.vb{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;color:var(--fg)}
+.vb i{width:7px;height:7px;background:var(--red);display:inline-block}
+.prc{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-top:1px solid var(--line);padding-top:10px;margin-top:4px;font-variant-numeric:tabular-nums}
+.prc b{font-family:var(--mono);font-size:1rem}
+.prc span{color:var(--muted);font-size:.8rem}
+.card .btn{width:100%;margin-top:6px;padding:.8em 1em}
+.card .btn.in{background:transparent;color:var(--fg);border-color:var(--fg)}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:39}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--bg);border-left:1px solid var(--line);z-index:40;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px);visibility:hidden}
+.drawer.open{transform:none;visibility:visible}
+.dr-head{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.dr-head h2{font-size:1.5rem;text-transform:none;letter-spacing:0}
+.x{background:none;border:1px solid var(--line);width:36px;height:36px;font-size:1.3rem;line-height:1;color:var(--fg)}
+.x:hover{border-color:var(--fg)}
+.dr-lines{flex:1;overflow:auto;padding:8px 20px}
+.dl{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.dl .thumb{aspect-ratio:1/1;width:64px}
+.dl b{font-size:.9rem;font-weight:600;display:block;line-height:1.3}
+.dl small{color:var(--muted);font-size:.78rem;display:block}
+.dl .r{text-align:right;font-family:var(--mono);font-size:.85rem;display:grid;gap:4px;justify-items:end}
+.linkbtn{background:none;border:0;padding:0;color:var(--muted);text-decoration:underline;font-size:.78rem;font-family:var(--body)}
+.empty{color:var(--muted);padding:24px 0;font-size:.95rem}
+.dr-foot{border-top:1px solid var(--line);padding:16px 20px 20px;display:grid;gap:12px}
+.btn.wide{width:100%}
+.demo{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;margin:0}
+.co{position:fixed;inset:0;z-index:45;display:grid;place-items:center;background:rgba(0,0,0,.6);padding:16px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
+.co-card{background:var(--bg);border:1px solid var(--line);border-top:3px solid var(--red);width:min(620px,100%);max-height:calc(100% - 16px);overflow:auto;padding:clamp(20px,4vw,32px);display:grid;gap:16px}
+.co-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.stps{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);counter-reset:s}
+.stps li{counter-increment:s}
+.stps li::before{content:counter(s) " ";}
+.stps li.on{color:var(--fg)}
+.stps li.done{color:var(--muted);text-decoration:line-through}
+.step-pane{display:grid;gap:12px}
+.step-pane h3{font-size:1.7rem}
+.fl{font-size:.85rem;font-weight:600}
+.inp{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);padding:12px 14px;width:100%}
+.inp:focus{border-color:var(--fg);outline:none}
+.err{color:var(--red);font-size:.88rem;font-weight:600;margin:0}
+.co-nav{display:flex;justify-content:space-between;gap:12px;margin-top:8px}
+.ap-list{display:grid;gap:12px}
+.ap{display:grid;grid-template-columns:110px 1fr;gap:14px;border:1px solid var(--line);padding:12px;align-items:center}
+.ap .thumb{aspect-ratio:1/1;width:110px}
+.ap .cwd{position:absolute;right:6px;bottom:8px;background:#F5F3F2;color:#0B0A0B;font-family:var(--mono);font-size:.62rem;padding:4px 6px;transform:rotate(4deg);line-height:1.2}
+.ap .cwd small{display:block;color:#C8102E;font-size:.5rem;letter-spacing:.12em;text-transform:uppercase}
+.ap b{font-size:.9rem;display:block}
+.ap small{color:var(--muted);font-size:.78rem;display:block}
+.ap label{display:flex;gap:8px;align-items:flex-start;font-size:.85rem;margin-top:8px;cursor:pointer}
+.ap input{accent-color:var(--red);margin-top:3px}
+@media (max-width:460px){.ap{grid-template-columns:80px 1fr}.ap .thumb{width:80px}}
+.pay{display:grid;gap:8px}
+.pay input{position:absolute;opacity:0;pointer-events:none}
+.pay label{display:grid;gap:2px;border:1px solid var(--line);padding:14px 16px;cursor:pointer}
+.pay label span{color:var(--muted);font-size:.85rem}
+.pay input:checked + label{border-color:var(--fg);box-shadow:inset 3px 0 0 var(--red)}
+.pay input:focus-visible + label{outline:2px solid var(--red);outline-offset:2px}
+.next{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--muted);font-size:.92rem}
+.note-box{border-left:2px solid var(--red);padding:4px 0 4px 14px;margin:0;font-size:.92rem}
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div class="gate-card">
+    <span class="logo"><i class="mark" aria-hidden="true"></i><b>RENT <span>GEAR</span></b></span>
+    <h2 id="gate-title" style="font-size:1.8rem"><span data-i="t0">Adults only</span></h2>
+    <p><span data-i="t1">Rent Gear is a members-only marketplace in Oslo where verified adults rent sex toys and gear from each other. Please confirm you are 18 or older.</span></p>
+    <div class="row">
+      <button class="btn red" id="enter"><span data-i="t2">I am 18 or older</span></button>
+      <button class="btn ghost" id="leave"><span data-i="t3">Leave</span></button>
+    </div>
+    <div style="margin-top:8px"><div class="langs" role="group" aria-label="Language / Språk"><button type="button" data-lang="en" lang="en">EN</button><button type="button" data-lang="no" lang="nb">NO</button></div></div>
+    <p id="leave-msg" hidden><span data-i="t4">Thanks for stopping by. You can close this tab.</span></p>
+  </div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Rent Gear home" data-ia="a5"><i class="mark" aria-hidden="true"></i><b>RENT <span>GEAR</span></b></a>
+    <ul>
+      <li><a href="#how"><span data-i="t6">How it works</span></a></li>
+      <li><a href="#ways"><span data-i="t7">Rent or list</span></a></li><li><a href="#browse"><span data-i="x46">Browse</span></a></li>
+      <li><a href="#safety"><span data-i="t8">Safety</span></a></li>
+      <li><a href="#hygiene">Hygiene</a></li>
+      <li><a href="#faq"><span data-i="t9">FAQ</span></a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="langs" role="group" aria-label="Language / Språk"><button type="button" data-lang="en" lang="en">EN</button><button type="button" data-lang="no" lang="nb">NO</button></div>
+      <button type="button" class="cartbtn" id="cartBtn" aria-controls="drawer" aria-expanded="false"><span class="lbl"><span data-i="x9">Booking</span></span><b id="cartCount">0</b><span class="sub" id="cartSub">kr 0</span></button>
+      <a class="btn" href="#join"><span class="long"><span data-i="t10">Get my invite</span></span><span class="short"><span data-i="t11">Join</span></span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div style="min-width:0">
+        <p class="eyebrow"><span data-i="t12">Coming to Oslo · Opening</span> <mark class="ph"><span data-i="t13">[launch month]</span></mark></p>
+        <h1><span data-i="t14">Everything you'd pack.</span><br><em><span data-i="t15">Already waiting in Oslo.</span></em></h1>
+        <p class="lede"><span data-i="t16">Rent Gear is a private marketplace where verified adults in Oslo rent sex toys and gear from each other. Visiting? Travel light and rent locally. Live here? Earn from what you already own.</span></p>
+
+        <form class="join" id="join">
+          <fieldset class="roles">
+            <legend><span data-i="t17">I want to</span></legend>
+            <input type="radio" name="role" id="r-rent" value="rent" checked><label for="r-rent"><span data-i="t18">Rent gear</span></label>
+            <input type="radio" name="role" id="r-list" value="list"><label for="r-list"><span data-i="t19">List my gear</span></label>
+            <input type="radio" name="role" id="r-both" value="both"><label for="r-both"><span data-i="t20">Both</span></label>
+          </fieldset>
+          <div class="field">
+            <label for="email" class="sr"><span data-i="t21">Email address</span></label>
+            <input id="email" type="email" placeholder="Your email" autocomplete="email" required data-ia="a22">
+            <button class="btn red" type="submit"><span data-i="t23">Get my Oslo invite</span></button>
+          </div>
+          <p class="fineprint"><b><span data-i="t24">Free to join. No ID or payment until we open.</span></b> <span data-i="t25">You'll get one email when we launch, with the subject line "Your Rent Gear invite".</span></p>
+        </form>
+        <div class="joined" id="joined" hidden aria-live="polite">
+          <b><span data-i="t26">You're on the Oslo list.</span></b>
+          <span class="fineprint" id="joinedMsg"></span>
+        </div>
+      </div>
+    </div>
+    <div class="film-stage">
+      <figure class="film" id="filmBox">
+        <video id="film" src="rentgear-hero.mp4" poster="rentgear-hero-poster.jpg" muted loop playsinline preload="auto" aria-label="Rent Gear in 12 seconds: arriving in Oslo, checking the live photo, matching code words, and a handoff at a café." data-ia="a27"></video>
+        <button class="film-btn" id="filmBtn" type="button" aria-pressed="false">Pause</button>
+      </figure>
+    </div>
+  </section>
+
+  <div class="promise" aria-label="Privacy promise" data-ia="a28">
+    <div class="wrap row">
+      <div><b><span data-i="t29">Usernames only</span></b><span><span data-i="t30">Your real name is never shown to the other person.</span></span></div>
+      <div><b><span data-i="t31">Addresses stay hidden</span></b><span><span data-i="t32">You meet in a public place you both agree on.</span></span></div>
+      <div><b><span data-i="t33">Every member verified</span></b><span><span data-i="t34">18+ ID check and a live selfie before anyone rents or lists.</span></span></div>
+      <div><b><span data-i="t35">No cash, ever</span></b><span><span data-i="t36">You pay on Rent Gear before you meet. Your deposit is held until the item is back.</span></span></div>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><span data-i="t37">How it works</span></p>
+        <h2><span data-i="t38">From message to handoff in four steps.</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3><span data-i="t39">Verify once</span></h3><p><span data-i="t40">Confirm you're 18+ with ID and a live selfie. It takes a few minutes, and your details stay private.</span></p></div>
+        <div class="step"><span class="n">2</span><h3><span data-i="t41">Find and message</span></h3><p><span data-i="t42">Browse gear by neighbourhood, such as Grünerløkka, Sentrum or Frogner. Agree the details in Rent Gear chat.</span></p></div>
+        <div class="step"><span class="n">3</span><h3><span data-i="t43">Check the live photo</span></h3><p><span data-i="t44">The owner photographs the item right before your booking, with a one-time code word beside it. You approve it, then pay.</span></p></div>
+        <div class="step"><span class="n">4</span><h3><span data-i="t45">Meet and return</span></h3><p><span data-i="t46">Meet in a public place and both take a photo of the item. Bring it back on time and your deposit is refunded automatically.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="money" id="ways">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><span data-i="t47">Two ways to use Rent Gear</span></p>
+        <h2><span data-i="t48">Rent for the trip. Or earn from what you own.</span></h2>
+      </div>
+      <div class="money-grid">
+        <div class="panel">
+          <p class="eyebrow"><span data-i="t49">Rent · Travel light</span></p>
+          <h3><span data-i="t50">Land in Oslo with a lighter bag and still have everything you want for the trip.</span></h3>
+          <div class="lines">
+            <div><span><span data-i="t51">Rental fee</span><small><span data-i="t52">Set by the owner, from kr 55</span></small></span><span>kr 150</span></div>
+            <div><span><span data-i="t53">Service fee</span><small><span data-i="t54">Rent Gear's fee</span></small></span><span><mark class="ph">kr 19</mark></span></div>
+            <div><span><span data-i="t55">Deposit</span><small><span data-i="t56">Refunded when the item is back</span></small></span><span>kr 500</span></div>
+            <div class="tot"><span><span data-i="t57">Paid at booking</span></span><span>kr 669</span></div>
+          </div>
+          <div class="timeline" aria-label="When money moves" data-ia="a58">
+            <div class="tl"><i aria-hidden="true"></i><b><span data-i="t59">Book</span></b><span data-i="t60">Held by our payment provider</span></div>
+            <div class="tl"><i aria-hidden="true"></i><b><span data-i="t61">Handoff</span></b><span data-i="t62">Owner receives the rental fee</span></div>
+            <div class="tl"><i aria-hidden="true"></i><b><span data-i="t63">Return</span></b><span data-i="t64">Your kr 500 comes back</span></div>
+          </div>
+          <p class="fineprint"><span data-i="t65">Example booking. Owners set their own prices and deposits.</span></p>
+        </div>
+
+        <div class="panel calc">
+          <p class="eyebrow"><span data-i="t66">List · Earn</span></p>
+          <h3><span data-i="t67">Gear sitting in a drawer starts earning, and a deposit protects it every time it leaves.</span></h3>
+          <label for="price"><span data-i="t68">Your price per rental</span> <output id="priceOut">kr 150</output></label>
+          <input type="range" id="price" min="55" max="600" step="5" value="150">
+          <label for="count"><span data-i="t69">Rentals per month</span> <output id="countOut">4</output></label>
+          <input type="range" id="count" min="1" max="15" step="1" value="4">
+          <div class="earn"><b id="earn">kr 600</b><span><span data-i="t70">a month, paid to you in full</span></span></div>
+          <p class="fineprint" style="font-size:.92rem"><b style="color:var(--fg)"><span data-i="t71">Worried about lending your gear?</span></b> <span data-i="t72">Every renter is ID-verified with a card on file. If it isn't back within 72 hours, the full deposit is yours.</span></p>
+        </div>
+      </div>
+      <p class="later"><span data-i="t73">Coming after launch: courier delivery in plain packaging, and rent-to-own.</span></p>
+    </div>
+  </section>
+
+  <section id="browse">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><span data-i="x1">Marketplace preview · Example listings</span></p>
+        <h2><span data-i="x2">Browse, book and pay. All before you meet.</span></h2>
+        <p class="lede"><span data-i="x3">This is how renting will work when we open. The listings below are examples. Add one to a booking and try the checkout. No payment is taken.</span></p>
+      </div>
+      <div class="chips" role="group" aria-label="Filter">
+        <button type="button" class="chip" data-cat="all" aria-pressed="true"><span data-i="x4">All</span></button>
+        <button type="button" class="chip" data-cat="vib" aria-pressed="false"><span data-i="x5">Vibrators</span></button>
+        <button type="button" class="chip" data-cat="sil" aria-pressed="false"><span data-i="x6">Silicone</span></button>
+        <button type="button" class="chip" data-cat="gs" aria-pressed="false"><span data-i="x7">Glass and steel</span></button>
+      </div>
+      <div class="grid" id="grid"></div>
+      <p class="later"><span data-i="x8">Prices are set by owners. Every listing shows its deposit before you book.</span></p>
+    </div>
+  </section>
+
+  <section class="safety" id="safety" style="background:var(--bg)">
+    <div class="wrap">
+      <div class="safe-top">
+        <div class="head">
+          <p class="eyebrow"><span data-i="t74">Trust and safety</span></p>
+          <h2><span data-i="t75">You see the real item before you pay.</span></h2>
+          <p class="lede"><span data-i="t76">Listing photos can be old or borrowed. That's why every booking also needs a fresh photo taken with the live camera, with a code word only that booking knows.</span></p>
+        </div>
+        <figure class="live" aria-label="Example of a live item photo with a one-time code word" style="margin:0" data-ia="a77">
+          <div class="live-top"><span class="rec"><i aria-hidden="true"></i><span data-i="t78">Live camera</span></span><span class="pill"><span data-i="t79">Example</span></span></div>
+          <div class="frame" aria-hidden="true">
+            <span class="c c1"></span><span class="c c2"></span><span class="c c3"></span><span class="c c4"></span>
+            <div class="item"></div>
+            <div class="codeword"><small><span data-i="t80">Code word</span></small><b id="code">FJORD 47</b></div>
+          </div>
+          <ul class="checks">
+            <li><span class="ok"><span data-i="t81">Code word matches</span></span><span id="codeMatch">FJORD 47</span></li>
+            <li><span class="ok"><span data-i="t82">Taken with live camera</span></span><span id="ago"><span data-i="t83">2 min ago</span></span></li>
+            <li><span class="ok"><span data-i="t84">Owner verified 18+</span></span><span>@nordlys_88</span></li>
+          </ul>
+          <button class="btn ghost" id="newCode" type="button"><span data-i="t85">Show another code word</span></button>
+        </figure>
+      </div>
+      <div class="safe-grid">
+        <div class="safe"><span class="tag"><span data-i="t86">Code word</span></span><h3><span data-i="t87">A new code for every booking</span></h3><p><span data-i="t88">The owner places a random word in the shot. No word, no booking.</span></p></div>
+        <div class="safe"><span class="tag"><span data-i="t89">Live camera only</span></span><h3><span data-i="t90">No gallery uploads</span></h3><p><span data-i="t91">The photo comes straight from the camera and is timestamped, within 24 hours of the handoff.</span></p></div>
+        <div class="safe"><span class="tag"><span data-i="t92">Photos both ways</span></span><h3><span data-i="t93">Handoff and return on record</span></h3><p><span data-i="t94">You both photograph the item when it changes hands. If there's a disagreement, the photos decide.</span></p></div>
+        <div class="safe"><span class="tag"><span data-i="t95">Verified people</span></span><h3><span data-i="t96">One real person per account</span></h3><p><span data-i="t97">ID, a live selfie and a card on file mean someone who breaks the rules can't just sign up again.</span></p></div>
+        <div class="safe"><span class="tag"><span data-i="t98">Private chat</span></span><h3><span data-i="t99">Contact details stay locked</span></h3><p><span data-i="t100">Phone numbers and emails are blocked in chat, so nobody can pull you into an unprotected deal.</span></p></div>
+        <div class="safe"><span class="tag"><span data-i="t101">Public meet-ups</span></span><h3><span data-i="t102">Never at someone's home</span></h3><p><span data-i="t103">You agree on a café or a busy square. Everything is paid beforehand, so only the item changes hands.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hygiene" style="background:var(--surface)">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><span data-i="t104">Hygiene standard</span></p>
+        <h2><span data-i="t105">Worried it isn't clean?</span></h2>
+        <p class="lede"><span data-i="t106">Fair question. We only accept materials that can be fully sanitised between people, like medical-grade silicone, glass and steel. Before you pay, you see a live photo of the exact item.</span></p>
+      </div>
+      <div class="hyg two">
+        <div class="col yes">
+          <span class="status"><i aria-hidden="true"></i><span data-i="t107">Accepted</span></span>
+          <ul>
+            <li><span data-i="t108">Medical-grade silicone</span></li>
+            <li><span data-i="t109">Glass and stainless steel</span></li>
+            <li><span data-i="t110">Hard plastic (ABS), ceramic, aluminium</span></li>
+            <li><span data-i="t111">Vibrators with a removable silicone sleeve</span></li>
+          </ul>
+        </div>
+        <div class="col no">
+          <span class="status"><i aria-hidden="true"></i><span data-i="t112">Never accepted</span></span>
+          <ul>
+            <li><span data-i="t113">Jelly, TPE and TPR</span></li>
+            <li><span data-i="t114">Latex and realistic-skin toys</span></li>
+            <li><span data-i="t115">Sealed vibrators coated in TPE</span></li>
+          </ul>
+          <p><span data-i="t116">These materials hold bacteria even after cleaning, so they can't be shared safely.</span></p>
+        </div>
+      </div>
+      <div class="note">
+        <h3><span data-i="t117">Who does the cleaning?</span></h3>
+        <p><span data-i="t118">The owner, following the Rent Gear cleaning checklist before every rental, and removable sleeves are replaced or sanitised. We can't be in every owner's home, so we also suggest giving it a quick clean yourself. With non-porous materials, that's simple and reliable.</span></p>
+      </div>
+      <p class="later"><span data-i="t119">Leather and fabric gear, such as harnesses and cuffs, will be added once our wipe-down standard has been tested in Oslo.</span></p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div class="head" style="margin:0">
+        <p class="eyebrow"><span data-i="t120">Who's behind Rent Gear</span></p>
+        <h2><span data-i="t121">A real company in Oslo. Real people answering.</span></h2>
+        <figure class="quote" style="margin-top:24px">
+          <span class="prov"><span data-i="t122">Founder note · Replace with your own words before publishing</span></span>
+          <blockquote><span data-i="t123">"</span><mark class="ph"><span data-i="t124">[Two or three sentences in your own voice: who you are, why you started Rent Gear, and what you won't compromise on.]</span></mark><span data-i="t125">"</span></blockquote>
+          <figcaption><b><mark class="ph"><span data-i="t126">[Founder name]</span></mark></b> <span data-i="t127">· Founder, Oslo</span></figcaption>
+        </figure>
+      </div>
+      <div class="facts">
+        <p class="eyebrow"><span data-i="t128">Our launch commitments</span></p>
+        <ul>
+          <li><b><span data-i="t129">Every member verified</span></b> <span data-i="t130">before their first rental or listing. No anonymous accounts.</span></li>
+          <li><b><span data-i="t131">Payments held by a licensed payment provider</span></b><span data-i="t132">, never by the owner, until the item is back.</span></li>
+          <li><b><span data-i="t133">Every listing reviewed by a person</span></b> <span data-i="t134">during the Oslo pilot.</span></li>
+          <li><b><span data-i="t135">Your ID stored securely</span></b> <span data-i="t136">and deleted when it's no longer needed, under GDPR.</span></li>
+        </ul>
+        <dl>
+          <div><dt><span data-i="t137">Company</span></dt><dd><mark class="ph"><span data-i="t138">[Company name AS]</span></mark></dd></div>
+          <div><dt><span data-i="t139">Org. number</span></dt><dd><mark class="ph">[000 000 000]</mark></dd></div>
+          <div><dt><span data-i="t140">Contact</span></dt><dd>hello@rentgear.com</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="background:var(--surface)">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow"><span data-i="t141">Questions</span></p><h2><span data-i="t142">Asked privately. Answered plainly.</span></h2></div>
+      <div class="faq">
+        <details open><summary><span data-i="t143">Someone else has used this. Is it actually clean?</span></summary><p><span data-i="t144">Some materials, such as jelly, TPE and latex, can't be made safe to share, so we don't allow them. Everything on Rent Gear is non-porous, like medical-grade silicone, glass or steel, and can be fully sanitised. Owners follow a cleaning checklist before every rental, and you see a live photo of the exact item before you pay. Many people also give it their own clean when it arrives, and we'd encourage that.</span></p></details>
+        <details><summary><span data-i="t145">Will anyone find out I used this?</span></summary><p><span data-i="t146">The other person only ever sees your username. Your real name and address are never shared, and emails from us never mention what you rented. Your bank statement will show</span> <mark class="ph"><span data-i="t147">[billing name]</span></mark><span data-i="t148">. Your ID is checked once, stored securely, and kept no longer than needed.</span></p></details>
+        <details><summary><span data-i="t149">Is it safe to meet a stranger?</span></summary><p><span data-i="t150">Every member has passed an ID check and a live selfie, so you're meeting a verified person, not an anonymous account. Meet-ups happen in public places you both agree on, and everything is paid beforehand, so no money changes hands in person. If something doesn't feel right, don't go ahead, and tell us.</span></p></details>
+        <details><summary><span data-i="t151">What if the item isn't as described, or I don't get my deposit back?</span></summary><p><span data-i="t152">You approve a live photo with a one-time code word before you pay, so the listing can't use an old or borrowed picture. Your deposit is held by our payment provider, not by the owner, and comes back automatically once you both confirm the return. If there's a disagreement, the photos taken at handoff and return decide it.</span></p></details>
+        <details><summary><span data-i="t153">What if I lend my gear and never see it again?</span></summary><p><span data-i="t154">Every renter is ID-verified with a card on file. If an item isn't back within 72 hours, the full deposit goes to you. If it's never returned, the renter is banned and charged its value. We can't promise nothing will ever go wrong, but we can make sure there are real consequences when it does.</span></p></details>
+        <details><summary><span data-i="t155">What happens if I return something late?</span></summary><p><span data-i="t156">You'll get a reminder, and a small daily late fee starts. After 72 hours, the full deposit goes to the owner and the account is suspended until it's sorted out.</span></p></details>
+        <details><summary><span data-i="t157">Can it be delivered instead?</span></summary><p><span data-i="t158">Not at launch. In Oslo, you meet in a public place you both agree on. Courier delivery in plain, unmarked packaging is planned for later.</span></p></details>
+        <details><summary><span data-i="t159">Can I pay in cash or Vipps at the meet-up?</span></summary><p><span data-i="t160">No. Every payment goes through Rent Gear before the handoff. That's what makes the deposit, the refund and our help with disagreements work. Deals made outside Rent Gear have no protection.</span></p></details>
+        <details><summary><span data-i="t161">Who can join?</span></summary><p><span data-i="t162">Any verified adult, 18 or older. Rent Gear is built with the gay community in mind and is open to everyone.</span></p></details>
+        <details><summary><span data-i="t163">When does Rent Gear open, and what does joining the list mean?</span></summary><p><span data-i="t164">We're aiming to open in Oslo in</span> <mark class="ph"><span data-i="t165">[launch month]</span></mark><span data-i="t166">. Joining the list is free and commits you to nothing. You'll get one email with your invite, and you'll verify your ID only when you decide to rent or list.</span></p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="band">
+    <div class="wrap" style="padding-block:clamp(56px,8vw,96px)">
+      <div><h2><span data-i="t167">Be first in Oslo.</span></h2><p><span data-i="t168">Founding members get first pick of listings, and founding owners get featured placement at launch. Joining is free.</span></p></div>
+      <a class="btn" href="#join" id="toJoin"><span data-i="t169">Get my Oslo invite</span></a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="logo"><i class="mark" aria-hidden="true"></i><b>RENT <span>GEAR</span></b></span>
+        <p><span data-i="t170">A private marketplace where verified adults in Oslo rent sex toys and gear from each other.</span></p>
+      </div>
+      <div><h4>Rent Gear</h4><ul><li><a href="#how"><span data-i="t171">How it works</span></a></li><li><a href="#ways"><span data-i="t172">Rent or list</span></a></li><li><a href="#about"><span data-i="t173">Who we are</span></a></li></ul></div>
+      <div><h4><span data-i="t174">Help</span></h4><ul><li><a href="#safety"><span data-i="t175">Trust and safety</span></a></li><li><a href="#faq"><span data-i="t176">FAQ</span></a></li><li>hello@rentgear.com</li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 <mark class="ph"><span data-i="t177">[Company name AS]</span></mark> <span data-i="t178">· Org.nr</span> <mark class="ph">[000 000 000]</mark> <span data-i="t179">· Oslo, Norway</span></span><span><span data-i="t180">18+ only ·</span> <a href="#privacy"><span data-i="t181">Privacy policy</span></a> · <a href="#terms"><span data-i="t182">Terms</span></a></span></div>
+  </div>
+</footer>
+
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-labelledby="drawerTitle">
+  <div class="dr-head"><h2 id="drawerTitle"><span data-i="x10">Your booking</span></h2><button type="button" class="x" id="drawerClose" aria-label="Close">×</button></div>
+  <div class="dr-lines" id="drLines"></div>
+  <div class="dr-foot" id="drFoot">
+    <div class="lines">
+      <div><span><span data-i="x12">Rental fees</span></span><span id="tRent">kr 0</span></div>
+      <div><span><span data-i="x13">Service fee</span><small><span data-i="x49">Example figure</span></small></span><span id="tFee">kr 0</span></div>
+      <div><span><span data-i="x14">Deposits</span><small><span data-i="x15">Refunded when the items are back</span></small></span><span id="tDep">kr 0</span></div>
+      <div class="tot"><span><span data-i="x16">Pay now</span></span><span id="tAll">kr 0</span></div>
+    </div>
+    <p class="fineprint"><span data-i="x17">Plain billing. Your statement shows</span> <mark class="ph"><span data-i="x47">[billing name]</span></mark>.</p>
+    <button type="button" class="btn red wide" id="toCheckout"><span data-i="x18">Continue to checkout</span></button>
+    <p class="demo"><span data-i="x19">Preview · No real payment is taken</span></p>
+  </div>
+</aside>
+
+<div class="co" id="co" hidden role="dialog" aria-modal="true" aria-labelledby="coTitle">
+  <div class="co-card">
+    <div class="co-top"><ol class="stps" id="stps">
+      <li><span data-i="x20">Handoff</span></li><li><span data-i="x21">Live photo</span></li><li><span data-i="x22">Payment</span></li><li><span data-i="x23">Done</span></li>
+    </ol><button type="button" class="x" id="coClose" aria-label="Close">×</button></div>
+    <p class="demo"><span data-i="x19">Preview · No real payment is taken</span></p>
+
+    <div class="step-pane" data-step="1">
+      <h3 id="coTitle"><span data-i="x24">When and where?</span></h3>
+      <label class="fl" for="coDate"><span data-i="x25">Handoff date</span></label>
+      <input type="date" id="coDate" class="inp" required>
+      <label class="fl" for="coArea"><span data-i="x26">Preferred meet-up area</span></label>
+      <select id="coArea" class="inp"><option>Oslo S / Sentrum</option><option>Grünerløkka</option><option>Majorstuen</option><option>Frogner</option><option>Tøyen</option><option>Gamle Oslo</option></select>
+      <p class="fineprint"><span data-i="x27">You'll agree the exact spot in chat. It's always a public place, like a café or a busy square.</span></p>
+      <p class="err" id="err1" hidden><span data-i="x50">Choose a handoff date to continue.</span></p>
+      <div class="co-nav"><span></span><button type="button" class="btn red" data-next="2"><span data-i="x28">Continue</span></button></div>
+    </div>
+
+    <div class="step-pane" data-step="2" hidden>
+      <h3><span data-i="x29">Approve the live photos</span></h3>
+      <p class="fineprint"><span data-i="x30">Each owner has just photographed their item with a code word for this booking. Check each photo, then approve it.</span></p>
+      <div id="apList" class="ap-list"></div>
+      <p class="err" id="err2" hidden><span data-i="x51">Approve every photo to continue.</span></p>
+      <div class="co-nav"><button type="button" class="btn ghost" data-next="1"><span data-i="x31">Back</span></button><button type="button" class="btn red" data-next="3"><span data-i="x28">Continue</span></button></div>
+    </div>
+
+    <div class="step-pane" data-step="3" hidden>
+      <h3><span data-i="x32">Payment</span></h3>
+      <div class="pay">
+        <input type="radio" name="pm" id="pmCard" value="card" checked><label for="pmCard"><b><span data-i="x33">Card</span></b><span><span data-i="x34">Visa or Mastercard, via our licensed payment provider</span></span></label>
+        <input type="radio" name="pm" id="pmCrypto" value="crypto"><label for="pmCrypto"><b><span data-i="x35">Crypto</span></b><span><span data-i="x36">USDC, via our crypto payment partner</span></span></label>
+      </div>
+      <div class="lines" id="coSum"></div>
+      <p class="fineprint"><span data-i="x37">You'll enter your details on the provider's secure page. Rent Gear never sees your card number. Deposits are held by the provider, not the owner.</span></p>
+      <div class="co-nav"><button type="button" class="btn ghost" data-next="2"><span data-i="x31">Back</span></button><button type="button" class="btn red" id="payBtn">Pay</button></div>
+    </div>
+
+    <div class="step-pane" data-step="4" hidden>
+      <h3><span data-i="x38">Preview complete</span></h3>
+      <div class="lines"><div><span><span data-i="x44">Booking reference</span></span><span id="coRef">RG-0000</span></div></div>
+      <p class="eyebrow"><span data-i="x45">What happens next</span></p>
+      <ol class="next">
+        <li><span data-i="x39">The owner gets your booking and opens a chat.</span></li>
+        <li><span data-i="x40">You agree the exact meeting spot together.</span></li>
+        <li><span data-i="x41">At the handoff you both take a photo. Return on time and your deposit comes back automatically.</span></li>
+      </ol>
+      <p class="note-box"><span data-i="x42">This was a preview. No payment was taken. Bookings open in</span> <mark class="ph"><span data-i="x48">[launch month]</span></mark>.</p>
+      <div class="co-nav"><span></span><button type="button" class="btn red" id="coJoin"><span data-i="x43">Get my Oslo invite</span></button></div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var L=[{"id": "l1", "cat": "vib", "shape": "s-wand", "mat": "m-bone", "price": 150, "dep": 500, "owner": "@nordlys_88", "area": "Grünerløkka", "name": {"en": "Rechargeable vibrator with removable sleeve", "no": "Oppladbar vibrator med avtakbart trekk"}, "m": {"en": "Medical-grade silicone · New sleeve each rental", "no": "Silikon av medisinsk kvalitet · Nytt trekk ved hver utleie"}}, {"id": "l2", "cat": "sil", "shape": "s-plug", "mat": "m-sil", "price": 120, "dep": 400, "owner": "@fjordfox", "area": "Sentrum", "name": {"en": "Silicone plug set, three sizes", "no": "Silikonplugger, tre størrelser"}, "m": {"en": "Medical-grade silicone", "no": "Silikon av medisinsk kvalitet"}}, {"id": "l3", "cat": "gs", "shape": "s-wand", "mat": "m-glass", "price": 90, "dep": 350, "owner": "@trikk_42", "area": "Frogner", "name": {"en": "Curved glass wand", "no": "Buet glasstav"}, "m": {"en": "Borosilicate glass", "no": "Borosilikatglass"}}, {"id": "l4", "cat": "gs", "shape": "s-plug", "mat": "m-steel", "price": 110, "dep": 450, "owner": "@havnelys", "area": "Majorstuen", "name": {"en": "Weighted stainless steel plug", "no": "Tung plugg i rustfritt stål"}, "m": {"en": "Medical-grade stainless steel", "no": "Rustfritt stål av medisinsk kvalitet"}}, {"id": "l5", "cat": "sil", "shape": "s-dildo", "mat": "m-sil", "price": 140, "dep": 450, "owner": "@skog.oslo", "area": "Tøyen", "name": {"en": "Silicone dildo, 18 cm", "no": "Silikondildo, 18 cm"}, "m": {"en": "Platinum-cured silicone", "no": "Platinaherdet silikon"}}, {"id": "l6", "cat": "vib", "shape": "s-couple", "mat": "m-bone", "price": 180, "dep": 600, "owner": "@vinternatt", "area": "Gamle Oslo", "name": {"en": "Couples vibrator with removable sleeve", "no": "Parvibrator med avtakbart trekk"}, "m": {"en": "Medical-grade silicone · New sleeve each rental", "no": "Silikon av medisinsk kvalitet · Nytt trekk ved hver utleie"}}], D={"en": {"add": "Add to booking", "added": "In your booking · Remove", "per": "per rental", "dep": "deposit", "ver": "Verified owner", "empty": "Nothing here yet. Add a listing from the preview to start a booking.", "remove": "Remove", "pay": "Pay", "approve": "I've checked the photo and approve it", "cw": "Code word", "taken": "Taken 3 min ago", "close": "Close", "ex": "Example"}, "no": {"add": "Legg til i bestilling", "added": "I bestillingen · Fjern", "per": "per utleie", "dep": "depositum", "ver": "Verifisert utleier", "empty": "Ingenting her ennå. Legg til en annonse fra forhåndsvisningen for å starte en bestilling.", "remove": "Fjern", "pay": "Betal", "approve": "Jeg har sjekket bildet og godkjenner det", "cw": "Kodeord", "taken": "Tatt for 3 min siden", "close": "Lukk", "ex": "Eksempel"}};
+  window.CGX={"en": {"x1": "Marketplace preview · Example listings", "x2": "Browse, book and pay. All before you meet.", "x3": "This is how renting will work when we open. The listings below are examples. Add one to a booking and try the checkout. No payment is taken.", "x4": "All", "x5": "Vibrators", "x6": "Silicone", "x7": "Glass and steel", "x8": "Prices are set by owners. Every listing shows its deposit before you book.", "x9": "Booking", "x48": "[launch month]", "x10": "Your booking", "x12": "Rental fees", "x13": "Service fee", "x49": "Example figure", "x14": "Deposits", "x15": "Refunded when the items are back", "x16": "Pay now", "x17": "Plain billing. Your statement shows", "x47": "[billing name]", "x18": "Continue to checkout", "x19": "Preview · No real payment is taken", "x20": "Handoff", "x21": "Live photo", "x22": "Payment", "x23": "Done", "x24": "When and where?", "x25": "Handoff date", "x26": "Preferred meet-up area", "x27": "You'll agree the exact spot in chat. It's always a public place, like a café or a busy square.", "x50": "Choose a handoff date to continue.", "x28": "Continue", "x29": "Approve the live photos", "x30": "Each owner has just photographed their item with a code word for this booking. Check each photo, then approve it.", "x51": "Approve every photo to continue.", "x31": "Back", "x32": "Payment", "x33": "Card", "x34": "Visa or Mastercard, via our licensed payment provider", "x35": "Crypto", "x36": "USDC, via our crypto payment partner", "x37": "You'll enter your details on the provider's secure page. Rent Gear never sees your card number. Deposits are held by the provider, not the owner.", "x38": "Preview complete", "x44": "Booking reference", "x45": "What happens next", "x39": "The owner gets your booking and opens a chat.", "x40": "You agree the exact meeting spot together.", "x41": "At the handoff you both take a photo. Return on time and your deposit comes back automatically.", "x42": "This was a preview. No payment was taken. Bookings open in", "x43": "Get my Oslo invite", "x46": "Browse"}, "no": {"x1": "Forhåndsvisning · Eksempelannonser", "x2": "Se, bestill og betal. Alt før dere møtes.", "x3": "Slik kommer utleie til å fungere når vi åpner. Annonsene under er eksempler. Legg en i en bestilling og prøv kassen. Ingen betaling blir trukket.", "x4": "Alle", "x5": "Vibratorer", "x6": "Silikon", "x7": "Glass og stål", "x8": "Prisene settes av utleierne. Hver annonse viser depositumet før du bestiller.", "x9": "Bestilling", "x48": "[lanseringsmåned]", "x10": "Din bestilling", "x12": "Leiepriser", "x13": "Servicegebyr", "x49": "Eksempeltall", "x14": "Depositum", "x15": "Refunderes når utstyret er tilbake", "x16": "Betal nå", "x17": "Nøytral fakturering. På kontoutskriften står det", "x47": "[faktureringsnavn]", "x18": "Gå til kassen", "x19": "Forhåndsvisning · Ingen ekte betaling trekkes", "x20": "Overlevering", "x21": "Live-bilde", "x22": "Betaling", "x23": "Ferdig", "x24": "Når og hvor?", "x25": "Dato for overlevering", "x26": "Ønsket område for møtet", "x27": "Dere avtaler nøyaktig sted i chatten. Det er alltid et offentlig sted, som en kafé eller en travel plass.", "x50": "Velg en dato for overlevering for å fortsette.", "x28": "Fortsett", "x29": "Godkjenn live-bildene", "x30": "Hver utleier har nettopp tatt et bilde av utstyret med et kodeord for denne bestillingen. Sjekk hvert bilde, og godkjenn det.", "x51": "Godkjenn alle bildene for å fortsette.", "x31": "Tilbake", "x32": "Betaling", "x33": "Kort", "x34": "Visa eller Mastercard, via vår lisensierte betalingsleverandør", "x35": "Kryptovaluta", "x36": "USDC, via vår partner for kryptobetaling", "x37": "Du legger inn opplysningene dine på leverandørens sikre side. Rent Gear ser aldri kortnummeret ditt. Depositum holdes av leverandøren, ikke av utleieren.", "x38": "Forhåndsvisningen er ferdig", "x44": "Bestillingsreferanse", "x45": "Hva skjer nå", "x39": "Utleieren får bestillingen din og åpner en chat.", "x40": "Dere avtaler nøyaktig møtested sammen.", "x41": "Ved overleveringen tar dere begge et bilde. Lever tilbake i tide, så kommer depositumet automatisk tilbake.", "x42": "Dette var en forhåndsvisning. Ingen betaling ble trukket. Bestillinger åpner i", "x43": "Få min Oslo-invitasjon", "x46": "Se utstyr"}};
+  var nf=new Intl.NumberFormat('nb-NO'), kr=function(n){return 'kr '+nf.format(n)};
+  var FEE=19, cart=[], filter='all', step=1;
+  function lg(){return window.cgLang||'en'}
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  try{cart=JSON.parse(store('rg-cart')||'[]').filter(function(id){return L.some(function(x){return x.id===id})})}catch(e){cart=[]}
+  function save(){store('rg-cart',JSON.stringify(cart))}
+  function byId(id){for(var i=0;i<L.length;i++)if(L[i].id===id)return L[i]}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function thumb(x,ex){return '<div class="thumb">'+(ex?'<span class="ex">'+esc(ex)+'</span>':'')+'<div class="shape '+x.shape+' '+x.mat+'"></div></div>'}
+  function totals(){var r=0,d=0;cart.forEach(function(id){var x=byId(id);r+=x.price;d+=x.dep});var f=FEE*cart.length;return{r:r,f:f,d:d,all:r+f+d}}
+  function render(){
+    var l=lg(),t=D[l],g=document.getElementById('grid');
+    g.innerHTML=L.filter(function(x){return filter==='all'||x.cat===filter}).map(function(x){var inC=cart.indexOf(x.id)>-1;
+      return '<article class="card">'+thumb(x,t.ex)+'<div class="body"><h3>'+esc(x.name[l])+'</h3><p class="meta">'+esc(x.m[l])+'</p><p class="meta">'+esc(x.owner)+' · '+esc(x.area)+'</p><span class="vb"><i></i>'+t.ver+'</span><div class="prc"><b>'+kr(x.price)+' <span>'+t.per+'</span></b><span>'+kr(x.dep)+' '+t.dep+'</span></div><button type="button" class="btn '+(inC?'in':'red')+'" data-add="'+x.id+'">'+(inC?t.added:t.add)+'</button></div></article>'}).join('');
+    var tt=totals();
+    document.getElementById('cartCount').textContent=cart.length;
+    document.getElementById('cartSub').textContent=kr(tt.all);
+    var dl=document.getElementById('drLines');
+    dl.innerHTML=cart.length?cart.map(function(id){var x=byId(id);return '<div class="dl">'+thumb(x)+'<div><b>'+esc(x.name[l])+'</b><small>'+esc(x.owner)+' · '+esc(x.area)+'</small><small>'+kr(x.dep)+' '+t.dep+'</small></div><div class="r">'+kr(x.price)+'<button type="button" class="linkbtn" data-rm="'+x.id+'">'+t.remove+'</button></div></div>'}).join(''):'<p class="empty">'+t.empty+'</p>';
+    document.getElementById('drFoot').hidden=!cart.length;
+    document.getElementById('tRent').textContent=kr(tt.r);document.getElementById('tFee').textContent=kr(tt.f);document.getElementById('tDep').textContent=kr(tt.d);document.getElementById('tAll').textContent=kr(tt.all);
+    document.getElementById('payBtn').textContent=t.pay+' '+kr(tt.all);
+    document.querySelectorAll('.x').forEach(function(b){b.setAttribute('aria-label',t.close)});
+    var cs=document.getElementById('coSum');
+    cs.innerHTML='<div><span>'+window.CGX[l].x12+'</span><span>'+kr(tt.r)+'</span></div><div><span>'+window.CGX[l].x13+'</span><span>'+kr(tt.f)+'</span></div><div><span>'+window.CGX[l].x14+'</span><span>'+kr(tt.d)+'</span></div><div class="tot"><span>'+window.CGX[l].x16+'</span><span>'+kr(tt.all)+'</span></div>';
+    if(step===2)renderAp();
+  }
+  window.cgRender=render;
+  var codes={};var words=['FJORD','NORDLYS','TRIKK','BRYGGE','SKOG','HAVN','STJERNE','VINTER','ELV','TOPP'];
+  function renderAp(){var l=lg(),t=D[l];
+    document.getElementById('apList').innerHTML=cart.map(function(id){var x=byId(id);if(!codes[id])codes[id]=words[Math.floor(Math.random()*words.length)]+' '+(10+Math.floor(Math.random()*90));
+      var chk=document.getElementById('ap-'+id);var was=chk&&chk.checked;
+      return '<div class="ap"><div class="thumb">'+'<div class="shape '+x.shape+' '+x.mat+'"></div><span class="cwd"><small>'+t.cw+'</small>'+codes[id]+'</span></div><div><b>'+esc(x.name[l])+'</b><small>'+esc(x.owner)+' · '+t.taken+'</small><label><input type="checkbox" id="ap-'+id+'"'+(was?' checked':'')+'> '+t.approve+'</label></div></div>'}).join('');}
+  // listing + cart events
+  document.getElementById('grid').addEventListener('click',function(e){var b=e.target.closest('[data-add]');if(!b)return;var id=b.getAttribute('data-add'),i=cart.indexOf(id);
+    if(i>-1)cart.splice(i,1);else{cart.push(id);bump()}save();render()});
+  document.getElementById('drLines').addEventListener('click',function(e){var b=e.target.closest('[data-rm]');if(!b)return;cart.splice(cart.indexOf(b.getAttribute('data-rm')),1);save();render()});
+  document.querySelectorAll('.chip').forEach(function(c){c.onclick=function(){filter=c.getAttribute('data-cat');document.querySelectorAll('.chip').forEach(function(o){o.setAttribute('aria-pressed',o===c)});render()}});
+  function bump(){var b=document.getElementById('cartBtn');b.animate&&b.animate([{transform:'scale(1)'},{transform:'scale(1.08)'},{transform:'scale(1)'}],{duration:300})}
+  var drawer=document.getElementById('drawer'),scrim=document.getElementById('scrim'),cb=document.getElementById('cartBtn'),co=document.getElementById('co');
+  function openDrawer(){drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');scrim.hidden=false;cb.setAttribute('aria-expanded','true');setTimeout(function(){document.getElementById('drawerClose').focus()},50)}
+  function closeDrawer(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');if(co.hidden)scrim.hidden=true;cb.setAttribute('aria-expanded','false')}
+  cb.onclick=openDrawer;document.getElementById('drawerClose').onclick=closeDrawer;scrim.onclick=closeDrawer;
+  // checkout
+  function goto(n){step=n;document.querySelectorAll('.step-pane').forEach(function(p){p.hidden=+p.getAttribute('data-step')!==n});
+    document.querySelectorAll('#stps li').forEach(function(li,i){li.className=i+1===n?'on':(i+1<n?'done':'')});
+    document.getElementById('err1').hidden=true;document.getElementById('err2').hidden=true;
+    if(n===2)renderAp();document.querySelector('.co-card').scrollTop=0}
+  var d=document.getElementById('coDate'),today=new Date();d.min=today.toISOString().slice(0,10);
+  document.getElementById('toCheckout').onclick=function(){if(!cart.length)return;closeDrawer();co.hidden=false;goto(1);setTimeout(function(){d.focus()},50)};
+  function closeCo(){co.hidden=true;scrim.hidden=true}
+  document.getElementById('coClose').onclick=closeCo;
+  document.getElementById('apList').addEventListener('change',function(){document.getElementById('err2').hidden=true});
+  d.addEventListener('change',function(){document.getElementById('err1').hidden=true});
+  document.querySelectorAll('[data-next]').forEach(function(b){b.onclick=function(){var n=+b.getAttribute('data-next');
+    if(n===2&&step===1&&!d.value){document.getElementById('err1').hidden=false;d.focus();return}
+    if(n===3&&step===2){var ok=cart.every(function(id){var c=document.getElementById('ap-'+id);return c&&c.checked});if(!ok){document.getElementById('err2').hidden=false;return}}
+    goto(n)}});
+  document.getElementById('payBtn').onclick=function(){document.getElementById('coRef').textContent='RG-'+(1000+Math.floor(Math.random()*9000));cart=[];codes={};save();render();goto(4)};
+  document.getElementById('coJoin').onclick=function(){closeCo();var f=document.getElementById('join');if(f&&!f.hidden){f.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){document.getElementById('email').focus({preventScroll:true})},500)}else{document.getElementById('top').scrollIntoView({behavior:'smooth'})}};
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(!co.hidden)closeCo();else if(drawer.classList.contains('open'))closeDrawer()}});
+})();
+</script>
+
+<script>
+(function(){
+  var DEFAULT='no';
+  var T={"en": {"t0": "Adults only", "t1": "Rent Gear is a members-only marketplace in Oslo where verified adults rent sex toys and gear from each other. Please confirm you are 18 or older.", "t2": "I am 18 or older", "t3": "Leave", "t4": "Thanks for stopping by. You can close this tab.", "t6": "How it works", "t7": "Rent or list", "t8": "Safety", "t9": "FAQ", "t10": "Get my invite", "t11": "Join", "t12": "Coming to Oslo · Opening", "t13": "[launch month]", "t14": "Everything you'd pack.", "t15": "Already waiting in Oslo.", "t16": "Rent Gear is a private marketplace where verified adults in Oslo rent sex toys and gear from each other. Visiting? Travel light and rent locally. Live here? Earn from what you already own.", "t17": "I want to", "t18": "Rent gear", "t19": "List my gear", "t20": "Both", "t21": "Email address", "t23": "Get my Oslo invite", "t24": "Free to join. No ID or payment until we open.", "t25": "You'll get one email when we launch, with the subject line \"Your Rent Gear invite\".", "t26": "You're on the Oslo list.", "t29": "Usernames only", "t30": "Your real name is never shown to the other person.", "t31": "Addresses stay hidden", "t32": "You meet in a public place you both agree on.", "t33": "Every member verified", "t34": "18+ ID check and a live selfie before anyone rents or lists.", "t35": "No cash, ever", "t36": "You pay on Rent Gear before you meet. Your deposit is held until the item is back.", "t37": "How it works", "t38": "From message to handoff in four steps.", "t39": "Verify once", "t40": "Confirm you're 18+ with ID and a live selfie. It takes a few minutes, and your details stay private.", "t41": "Find and message", "t42": "Browse gear by neighbourhood, such as Grünerløkka, Sentrum or Frogner. Agree the details in Rent Gear chat.", "t43": "Check the live photo", "t44": "The owner photographs the item right before your booking, with a one-time code word beside it. You approve it, then pay.", "t45": "Meet and return", "t46": "Meet in a public place and both take a photo of the item. Bring it back on time and your deposit is refunded automatically.", "t47": "Two ways to use Rent Gear", "t48": "Rent for the trip. Or earn from what you own.", "t49": "Rent · Travel light", "t50": "Land in Oslo with a lighter bag and still have everything you want for the trip.", "t51": "Rental fee", "t52": "Set by the owner, from kr 55", "t53": "Service fee", "t54": "Rent Gear's fee", "t55": "Deposit", "t56": "Refunded when the item is back", "t57": "Paid at booking", "t59": "Book", "t60": "Held by our payment provider", "t61": "Handoff", "t62": "Owner receives the rental fee", "t63": "Return", "t64": "Your kr 500 comes back", "t65": "Example booking. Owners set their own prices and deposits.", "t66": "List · Earn", "t67": "Gear sitting in a drawer starts earning, and a deposit protects it every time it leaves.", "t68": "Your price per rental", "t69": "Rentals per month", "t70": "a month, paid to you in full", "t71": "Worried about lending your gear?", "t72": "Every renter is ID-verified with a card on file. If it isn't back within 72 hours, the full deposit is yours.", "t73": "Coming after launch: courier delivery in plain packaging, and rent-to-own.", "t74": "Trust and safety", "t75": "You see the real item before you pay.", "t76": "Listing photos can be old or borrowed. That's why every booking also needs a fresh photo taken with the live camera, with a code word only that booking knows.", "t78": "Live camera", "t79": "Example", "t80": "Code word", "t81": "Code word matches", "t82": "Taken with live camera", "t83": "2 min ago", "t84": "Owner verified 18+", "t85": "Show another code word", "t86": "Code word", "t87": "A new code for every booking", "t88": "The owner places a random word in the shot. No word, no booking.", "t89": "Live camera only", "t90": "No gallery uploads", "t91": "The photo comes straight from the camera and is timestamped, within 24 hours of the handoff.", "t92": "Photos both ways", "t93": "Handoff and return on record", "t94": "You both photograph the item when it changes hands. If there's a disagreement, the photos decide.", "t95": "Verified people", "t96": "One real person per account", "t97": "ID, a live selfie and a card on file mean someone who breaks the rules can't just sign up again.", "t98": "Private chat", "t99": "Contact details stay locked", "t100": "Phone numbers and emails are blocked in chat, so nobody can pull you into an unprotected deal.", "t101": "Public meet-ups", "t102": "Never at someone's home", "t103": "You agree on a café or a busy square. Everything is paid beforehand, so only the item changes hands.", "t104": "Hygiene standard", "t105": "Worried it isn't clean?", "t106": "Fair question. We only accept materials that can be fully sanitised between people, like medical-grade silicone, glass and steel. Before you pay, you see a live photo of the exact item.", "t107": "Accepted", "t108": "Medical-grade silicone", "t109": "Glass and stainless steel", "t110": "Hard plastic (ABS), ceramic, aluminium", "t111": "Vibrators with a removable silicone sleeve", "t112": "Never accepted", "t113": "Jelly, TPE and TPR", "t114": "Latex and realistic-skin toys", "t115": "Sealed vibrators coated in TPE", "t116": "These materials hold bacteria even after cleaning, so they can't be shared safely.", "t117": "Who does the cleaning?", "t118": "The owner, following the Rent Gear cleaning checklist before every rental, and removable sleeves are replaced or sanitised. We can't be in every owner's home, so we also suggest giving it a quick clean yourself. With non-porous materials, that's simple and reliable.", "t119": "Leather and fabric gear, such as harnesses and cuffs, will be added once our wipe-down standard has been tested in Oslo.", "t120": "Who's behind Rent Gear", "t121": "A real company in Oslo. Real people answering.", "t122": "Founder note · Replace with your own words before publishing", "t123": "\"", "t124": "[Two or three sentences in your own voice: who you are, why you started Rent Gear, and what you won't compromise on.]", "t125": "\"", "t126": "[Founder name]", "t127": "· Founder, Oslo", "t128": "Our launch commitments", "t129": "Every member verified", "t130": "before their first rental or listing. No anonymous accounts.", "t131": "Payments held by a licensed payment provider", "t132": ", never by the owner, until the item is back.", "t133": "Every listing reviewed by a person", "t134": "during the Oslo pilot.", "t135": "Your ID stored securely", "t136": "and deleted when it's no longer needed, under GDPR.", "t137": "Company", "t138": "[Company name AS]", "t139": "Org. number", "t140": "Contact", "t141": "Questions", "t142": "Asked privately. Answered plainly.", "t143": "Someone else has used this. Is it actually clean?", "t144": "Some materials, such as jelly, TPE and latex, can't be made safe to share, so we don't allow them. Everything on Rent Gear is non-porous, like medical-grade silicone, glass or steel, and can be fully sanitised. Owners follow a cleaning checklist before every rental, and you see a live photo of the exact item before you pay. Many people also give it their own clean when it arrives, and we'd encourage that.", "t145": "Will anyone find out I used this?", "t146": "The other person only ever sees your username. Your real name and address are never shared, and emails from us never mention what you rented. Your bank statement will show", "t147": "[billing name]", "t148": ". Your ID is checked once, stored securely, and kept no longer than needed.", "t149": "Is it safe to meet a stranger?", "t150": "Every member has passed an ID check and a live selfie, so you're meeting a verified person, not an anonymous account. Meet-ups happen in public places you both agree on, and everything is paid beforehand, so no money changes hands in person. If something doesn't feel right, don't go ahead, and tell us.", "t151": "What if the item isn't as described, or I don't get my deposit back?", "t152": "You approve a live photo with a one-time code word before you pay, so the listing can't use an old or borrowed picture. Your deposit is held by our payment provider, not by the owner, and comes back automatically once you both confirm the return. If there's a disagreement, the photos taken at handoff and return decide it.", "t153": "What if I lend my gear and never see it again?", "t154": "Every renter is ID-verified with a card on file. If an item isn't back within 72 hours, the full deposit goes to you. If it's never returned, the renter is banned and charged its value. We can't promise nothing will ever go wrong, but we can make sure there are real consequences when it does.", "t155": "What happens if I return something late?", "t156": "You'll get a reminder, and a small daily late fee starts. After 72 hours, the full deposit goes to the owner and the account is suspended until it's sorted out.", "t157": "Can it be delivered instead?", "t158": "Not at launch. In Oslo, you meet in a public place you both agree on. Courier delivery in plain, unmarked packaging is planned for later.", "t159": "Can I pay in cash or Vipps at the meet-up?", "t160": "No. Every payment goes through Rent Gear before the handoff. That's what makes the deposit, the refund and our help with disagreements work. Deals made outside Rent Gear have no protection.", "t161": "Who can join?", "t162": "Any verified adult, 18 or older. Rent Gear is built with the gay community in mind and is open to everyone.", "t163": "When does Rent Gear open, and what does joining the list mean?", "t164": "We're aiming to open in Oslo in", "t165": "[launch month]", "t166": ". Joining the list is free and commits you to nothing. You'll get one email with your invite, and you'll verify your ID only when you decide to rent or list.", "t167": "Be first in Oslo.", "t168": "Founding members get first pick of listings, and founding owners get featured placement at launch. Joining is free.", "t169": "Get my Oslo invite", "t170": "A private marketplace where verified adults in Oslo rent sex toys and gear from each other.", "t171": "How it works", "t172": "Rent or list", "t173": "Who we are", "t174": "Help", "t175": "Trust and safety", "t176": "FAQ", "t177": "[Company name AS]", "t178": "· Org.nr", "t179": "· Oslo, Norway", "t180": "18+ only ·", "t181": "Privacy policy", "t182": "Terms"}, "no": {"t0": "Kun for voksne", "t1": "Rent Gear er en markedsplass for medlemmer i Oslo, der verifiserte voksne leier sexleketøy og utstyr av hverandre. Bekreft at du er 18 år eller eldre.", "t2": "Jeg er 18 eller eldre", "t3": "Forlat siden", "t4": "Takk for besøket. Du kan lukke denne fanen.", "t6": "Slik fungerer det", "t7": "Lei eller lei ut", "t8": "Sikkerhet", "t9": "Spørsmål", "t10": "Få invitasjon", "t11": "Bli med", "t12": "Snart i Oslo · Åpner", "t13": "[lanseringsmåned]", "t14": "Alt du ville pakket.", "t15": "Det venter allerede i Oslo.", "t16": "Rent Gear er en privat markedsplass der verifiserte voksne i Oslo leier sexleketøy og utstyr av hverandre. På besøk? Reis lett og lei lokalt. Bor du her? Tjen penger på det du allerede eier.", "t17": "Jeg vil", "t18": "Leie utstyr", "t19": "Leie ut mitt utstyr", "t20": "Begge deler", "t21": "E-postadresse", "t23": "Få min Oslo-invitasjon", "t24": "Gratis å bli med. Ingen ID eller betaling før vi åpner.", "t25": "Du får én e-post når vi lanserer, med emnefeltet «Din invitasjon fra Rent Gear».", "t26": "Du står på Oslo-listen.", "t29": "Kun brukernavn", "t30": "Det ekte navnet ditt vises aldri for den andre parten.", "t31": "Adresser holdes skjult", "t32": "Dere møtes på et offentlig sted dere blir enige om.", "t33": "Alle medlemmer verifiseres", "t34": "ID-sjekk for 18+ og live-selfie før noen kan leie eller leie ut.", "t35": "Aldri kontanter", "t36": "Du betaler via Rent Gear før dere møtes. Depositumet holdes til utstyret er tilbake.", "t37": "Slik fungerer det", "t38": "Fra melding til overlevering i fire steg.", "t39": "Verifiser deg én gang", "t40": "Bekreft at du er over 18 med ID og en live-selfie. Det tar noen minutter, og opplysningene dine forblir private.", "t41": "Finn og send melding", "t42": "Se utstyr etter bydel, som Grünerløkka, Sentrum eller Frogner. Avtal detaljene i Rent Gear-chatten.", "t43": "Sjekk live-bildet", "t44": "Utleieren tar et bilde av utstyret rett før bestillingen, med et engangskodeord ved siden av. Du godkjenner, og så betaler du.", "t45": "Møt og lever tilbake", "t46": "Møt på et offentlig sted, og ta begge et bilde av utstyret. Lever tilbake i tide, så refunderes depositumet automatisk.", "t47": "To måter å bruke Rent Gear på", "t48": "Lei til turen. Eller tjen på det du eier.", "t49": "Lei · Reis lett", "t50": "Land i Oslo med lettere bagasje og ha likevel alt du vil ha på turen.", "t51": "Leiepris", "t52": "Satt av utleieren, fra kr 55", "t53": "Servicegebyr", "t54": "Rent Gears gebyr", "t55": "Depositum", "t56": "Refunderes når utstyret er tilbake", "t57": "Betalt ved bestilling", "t59": "Bestill", "t60": "Holdes av betalingsleverandøren", "t61": "Overlevering", "t62": "Utleieren får leieprisen", "t63": "Retur", "t64": "Du får kr 500 tilbake", "t65": "Eksempel på bestilling. Utleiere setter egne priser og depositum.", "t66": "Lei ut · Tjen penger", "t67": "Utstyr som ligger i en skuff begynner å tjene penger, og et depositum beskytter det hver gang det er utlånt.", "t68": "Din pris per utleie", "t69": "Utleier per måned", "t70": "i måneden, utbetalt i sin helhet til deg", "t71": "Bekymret for å leie ut utstyret ditt?", "t72": "Alle leietakere er ID-verifisert med et kort registrert. Er det ikke tilbake innen 72 timer, er hele depositumet ditt.", "t73": "Kommer etter lansering: levering med bud i nøytral emballasje, og leie til eie.", "t74": "Tillit og sikkerhet", "t75": "Du ser det ekte utstyret før du betaler.", "t76": "Annonsebilder kan være gamle eller lånte. Derfor krever hver bestilling også et ferskt bilde tatt med live-kameraet, med et kodeord som bare den bestillingen kjenner.", "t78": "Live-kamera", "t79": "Eksempel", "t80": "Kodeord", "t81": "Kodeordet stemmer", "t82": "Tatt med live-kamera", "t83": "2 min siden", "t84": "Utleier verifisert 18+", "t85": "Vis et nytt kodeord", "t86": "Kodeord", "t87": "Et nytt kodeord for hver bestilling", "t88": "Utleieren legger et tilfeldig ord i bildet. Uten ordet, ingen bestilling.", "t89": "Kun live-kamera", "t90": "Ingen opplasting fra galleriet", "t91": "Bildet tas direkte med kameraet og tidsstemples, innen 24 timer før overleveringen.", "t92": "Bilder begge veier", "t93": "Overlevering og retur dokumenteres", "t94": "Dere tar begge et bilde av utstyret når det bytter hender. Ved uenighet er det bildene som avgjør.", "t95": "Verifiserte personer", "t96": "Én ekte person per konto", "t97": "ID, live-selfie og et registrert kort gjør at den som bryter reglene ikke bare kan registrere seg på nytt.", "t98": "Privat chat", "t99": "Kontaktinformasjon er låst", "t100": "Telefonnumre og e-postadresser blokkeres i chatten, så ingen kan lokke deg inn i en avtale uten beskyttelse.", "t101": "Offentlige møter", "t102": "Aldri hjemme hos noen", "t103": "Dere avtaler en kafé eller en travel plass. Alt er betalt på forhånd, så det eneste som bytter hender er utstyret.", "t104": "Hygienestandard", "t105": "Bekymret for hygienen?", "t106": "Godt spørsmål. Vi godtar bare materialer som kan desinfiseres fullstendig mellom brukere, som silikon av medisinsk kvalitet, glass og stål. Før du betaler, ser du et live-bilde av akkurat det utstyret.", "t107": "Godkjent", "t108": "Silikon av medisinsk kvalitet", "t109": "Glass og rustfritt stål", "t110": "Hard plast (ABS), keramikk, aluminium", "t111": "Vibratorer med avtakbart silikontrekk", "t112": "Aldri godkjent", "t113": "Jelly, TPE og TPR", "t114": "Lateks og leketøy med «realistisk hud»", "t115": "Forseglede vibratorer belagt med TPE", "t116": "Disse materialene holder på bakterier selv etter rengjøring, så de kan ikke deles trygt.", "t117": "Hvem rengjør utstyret?", "t118": "Utleieren, etter Rent Gears rengjøringssjekkliste før hver utleie, og avtakbare trekk byttes eller desinfiseres. Vi kan ikke være hjemme hos hver utleier, så vi anbefaler også at du gir det en rask rengjøring selv. Med ikke-porøse materialer er det enkelt og pålitelig.", "t119": "Lær- og tekstilutstyr, som seler og mansjetter, legges til når standarden vår for avtørking er testet i Oslo.", "t120": "Hvem står bak Rent Gear", "t121": "Et ekte selskap i Oslo. Ekte mennesker som svarer.", "t122": "Hilsen fra gründeren · Erstatt med dine egne ord før publisering", "t123": "«", "t124": "[To eller tre setninger med din egen stemme: hvem du er, hvorfor du startet Rent Gear, og hva du aldri vil gå på akkord med.]", "t125": "»", "t126": "[Navn på gründer]", "t127": "· Gründer, Oslo", "t128": "Våre løfter ved lansering", "t129": "Alle medlemmer verifiseres", "t130": "før første utleie eller annonse. Ingen anonyme kontoer.", "t131": "Betalinger holdes av en lisensiert betalingsleverandør", "t132": ", aldri av utleieren, til utstyret er tilbake.", "t133": "Hver annonse gjennomgås av et menneske", "t134": "under Oslo-piloten.", "t135": "ID-en din lagres trygt", "t136": "og slettes når den ikke lenger trengs, i tråd med GDPR.", "t137": "Selskap", "t138": "[Selskapsnavn AS]", "t139": "Org.nr.", "t140": "Kontakt", "t141": "Spørsmål", "t142": "Spurt privat. Besvart rett ut.", "t143": "Noen andre har brukt dette. Er det virkelig rent?", "t144": "Noen materialer, som jelly, TPE og lateks, kan ikke gjøres trygge å dele, så dem tillater vi ikke. Alt på Rent Gear er ikke-porøst, som silikon av medisinsk kvalitet, glass eller stål, og kan desinfiseres fullstendig. Utleiere følger en rengjøringssjekkliste før hver utleie, og du ser et live-bilde av akkurat det utstyret før du betaler. Mange vasker det også selv når de får det, og det anbefaler vi.", "t145": "Kommer noen til å finne ut at jeg har brukt dette?", "t146": "Den andre parten ser bare brukernavnet ditt. Ditt ekte navn og din adresse deles aldri, og e-poster fra oss nevner aldri hva du har leid. På kontoutskriften står det", "t147": "[faktureringsnavn]", "t148": ". ID-en din sjekkes én gang, lagres trygt og beholdes ikke lenger enn nødvendig.", "t149": "Er det trygt å møte en fremmed?", "t150": "Alle medlemmer har bestått en ID-sjekk og en live-selfie, så du møter en verifisert person, ikke en anonym konto. Dere møtes på et offentlig sted dere blir enige om, og alt er betalt på forhånd, så ingen penger byttes ansikt til ansikt. Hvis noe ikke føles riktig, ikke gjennomfør det, og si fra til oss.", "t151": "Hva om utstyret ikke er som beskrevet, eller jeg ikke får depositumet tilbake?", "t152": "Du godkjenner et live-bilde med et engangskodeord før du betaler, så annonsen kan ikke bruke et gammelt eller lånt bilde. Depositumet ditt holdes av betalingsleverandøren vår, ikke av utleieren, og kommer automatisk tilbake når dere begge har bekreftet returen. Er dere uenige, er det bildene fra overlevering og retur som avgjør.", "t153": "Hva om jeg leier ut utstyret mitt og aldri ser det igjen?", "t154": "Alle leietakere er ID-verifisert og har et kort registrert. Er utstyret ikke tilbake innen 72 timer, går hele depositumet til deg. Blir det aldri levert tilbake, blir leietakeren utestengt og belastet for verdien. Vi kan ikke love at ingenting noen gang går galt, men vi kan sørge for at det får ekte konsekvenser når det skjer.", "t155": "Hva skjer hvis jeg leverer for sent?", "t156": "Du får en påminnelse, og et lite daglig gebyr for forsinkelse starter. Etter 72 timer går hele depositumet til utleieren, og kontoen suspenderes til saken er løst.", "t157": "Kan jeg få det levert i stedet?", "t158": "Ikke ved lansering. I Oslo møtes dere på et offentlig sted dere blir enige om. Levering med bud i nøytral, umerket emballasje er planlagt senere.", "t159": "Kan jeg betale med kontanter eller Vipps når vi møtes?", "t160": "Nei. All betaling skjer via Rent Gear før overleveringen. Det er dette som gjør at depositumet, refusjonen og hjelpen vår ved uenighet fungerer. Avtaler utenfor Rent Gear er ikke beskyttet.", "t161": "Hvem kan bli med?", "t162": "Alle verifiserte voksne over 18 år. Rent Gear er laget med det homofile miljøet i tankene, og er åpent for alle.", "t163": "Når åpner Rent Gear, og hva betyr det å stå på listen?", "t164": "Vi tar sikte på å åpne i Oslo i", "t165": "[lanseringsmåned]", "t166": ". Det er gratis å stå på listen, og du forplikter deg ikke til noe. Du får én e-post med invitasjonen din, og du verifiserer ID-en din først når du bestemmer deg for å leie eller leie ut.", "t167": "Bli først i Oslo.", "t168": "De første medlemmene får førstevalg blant annonsene, og de første utleierne blir fremhevet ved lansering. Det er gratis å bli med.", "t169": "Få min Oslo-invitasjon", "t170": "En privat markedsplass der verifiserte voksne i Oslo leier sexleketøy og utstyr av hverandre.", "t171": "Slik fungerer det", "t172": "Lei eller lei ut", "t173": "Hvem vi er", "t174": "Hjelp", "t175": "Tillit og sikkerhet", "t176": "Spørsmål", "t177": "[Selskapsnavn AS]", "t178": "· Org.nr.", "t179": "· Oslo, Norge", "t180": "Kun 18+ ·", "t181": "Personvern", "t182": "Vilkår"}}, A={"a5": {"en": {"aria-label": "Rent Gear home"}, "no": {"aria-label": "Rent Gear forside"}}, "a22": {"en": {"placeholder": "Your email"}, "no": {"placeholder": "Din e-post"}}, "a27": {"en": {"aria-label": "Rent Gear in 12 seconds: arriving in Oslo, checking the live photo, matching code words, and a handoff at a café."}, "no": {"aria-label": "Rent Gear på 12 sekunder: ankomst i Oslo, sjekk av live-bildet, like kodeord og overlevering på en kafé."}}, "a28": {"en": {"aria-label": "Privacy promise"}, "no": {"aria-label": "Personvernløftet vårt"}}, "a58": {"en": {"aria-label": "When money moves"}, "no": {"aria-label": "Når pengene flyttes"}}, "a77": {"en": {"aria-label": "Example of a live item photo with a one-time code word"}, "no": {"aria-label": "Eksempel på et live-bilde av utstyr med et engangskodeord"}}};
+  var S={en:{title:'Rent Gear Oslo',labels:{rent:'renting',list:'listing your gear',both:'renting and listing'},msg:function(e,r){return "We'll email "+e+" once Rent Gear opens for "+r+" in Oslo."},now:'Just now',ago:' min ago',play:'Play',pause:'Pause',video:'rentgear-hero.mp4',poster:'rentgear-hero-poster.jpg',html:'en'},
+         no:{title:'Rent Gear Oslo',labels:{rent:'leie',list:'utleie av utstyret ditt',both:'leie og utleie'},msg:function(e,r){return 'Vi sender en e-post til '+e+' når Rent Gear åpner for '+r+' i Oslo.'},now:'Akkurat nå',ago:' min siden',play:'Spill av',pause:'Pause',video:'rentgear-hero-no.mp4',poster:'rentgear-hero-poster-no.jpg',html:'nb'}};
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  var lang='en';
+  var film=document.getElementById('film'),fb=document.getElementById('filmBtn'),box=document.getElementById('filmBox');
+  var rm=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches),userPaused=false,started=false,ticking=false,visible=false;
+  function play(){var pr=film.play();if(pr&&pr.catch)pr.catch(function(){})}
+  function setBtn(){var p=film.paused;fb.textContent=p?S[lang].play:S[lang].pause;fb.setAttribute('aria-pressed',p)}
+  var mins=2;
+  if(window.CGX){Object.assign(T.en,CGX.en);Object.assign(T.no,CGX.no)}
+  function setLang(l,save){
+    window.cgLang=(S[l]?l:'en');
+    if(!S[l])l='en';lang=l;
+    document.querySelectorAll('[data-i]').forEach(function(el){var v=T[l][el.getAttribute('data-i')];if(v!=null)el.textContent=v});
+    document.querySelectorAll('[data-ia]').forEach(function(el){var m=A[el.getAttribute('data-ia')][l];for(var k in m){if(m[k]==null)el.removeAttribute(k);else el.setAttribute(k,m[k])}});
+    document.documentElement.lang=S[l].html;
+    document.querySelectorAll('.langs button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-lang')===l)});
+    document.getElementById('ago').textContent=mins===0?S[l].now:mins+S[l].ago;
+    var jm=document.getElementById('joinedMsg');if(jm.dataset.e)jm.textContent=S[l].msg(jm.dataset.e,S[l].labels[jm.dataset.r]);
+    if(film.getAttribute('src')!==S[l].video){var wasPlaying=!film.paused;film.setAttribute('poster',S[l].poster);film.setAttribute('src',S[l].video);try{film.load()}catch(_){}
+      started=false;if(visible&&!userPaused&&!rm){started=true;play()}}
+    setBtn();
+    if(window.cgRender)cgRender();
+    if(save)store('rg-lang',l);
+  }
+  document.querySelectorAll('.langs button').forEach(function(b){b.onclick=function(){setLang(b.getAttribute('data-lang'),true)}});
+  var h=(location.hash||'').slice(1),saved=store('rg-lang'),nav=(navigator.language||'').toLowerCase();
+  var start=(h==='no'||h==='en')?h:(saved||(DEFAULT==='no'?'no':(/^(nb|nn|no)/.test(nav)?'no':'en')));
+  setLang(start,false);
+
+  var gate=document.getElementById('gate');
+  if(store('rg-age')==='ok') gate.hidden=true;
+  document.getElementById('enter').onclick=function(){gate.hidden=true;store('rg-age','ok')};
+  document.getElementById('leave').onclick=function(){document.getElementById('leave-msg').hidden=false};
+
+  var words=['FJORD','NORDLYS','TRIKK','BRYGGE','SKOG','HAVN','STJERNE','VINTER','ELV','TOPP'];
+  document.getElementById('newCode').onclick=function(){
+    var w=words[Math.floor(Math.random()*words.length)]+' '+(10+Math.floor(Math.random()*90));
+    document.getElementById('code').textContent=w;document.getElementById('codeMatch').textContent=w;
+    mins=0;document.getElementById('ago').textContent=S[lang].now;
+  };
+  setInterval(function(){mins++;document.getElementById('ago').textContent=mins+S[lang].ago},60000);
+
+  var p=document.getElementById('price'),c=document.getElementById('count'),nf=new Intl.NumberFormat('nb-NO');
+  function calc(){document.getElementById('priceOut').textContent='kr '+nf.format(p.value);document.getElementById('countOut').textContent=c.value;document.getElementById('earn').textContent='kr '+nf.format(p.value*c.value)}
+  p.oninput=c.oninput=calc;calc();
+
+  document.getElementById('join').addEventListener('submit',function(e){
+    e.preventDefault();var role=this.querySelector('input[name=role]:checked').value,em=document.getElementById('email').value,jm=document.getElementById('joinedMsg');
+    jm.dataset.e=em;jm.dataset.r=role;jm.textContent=S[lang].msg(em,S[lang].labels[role]);
+    this.hidden=true;document.getElementById('joined').hidden=false;
+  });
+  document.getElementById('toJoin').addEventListener('click',function(){setTimeout(function(){var em=document.getElementById('email');if(em&&!em.closest('form').hidden)em.focus({preventScroll:true})},500)});
+
+  fb.onclick=function(){if(film.paused){userPaused=false;play()}else{userPaused=true;film.pause()}};
+  film.addEventListener('play',setBtn);film.addEventListener('pause',setBtn);
+  function grow(){ticking=false;if(rm)return;var r=box.getBoundingClientRect(),vh=window.innerHeight||800;
+    var q=Math.min(1,Math.max(0,(vh-r.top)/(vh*.85)));q=q<.5?2*q*q:1-Math.pow(-2*q+2,2)/2;
+    box.style.transform='scale('+(.84+.16*q).toFixed(4)+')';box.style.borderRadius=(22*(1-q)).toFixed(1)+'px'}
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(grow)}}
+  window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);grow();
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){
+    visible=e.intersectionRatio>=.5;
+    if(visible){if(!started){try{film.currentTime=0}catch(_){}started=true}if(!userPaused&&!rm)play()}
+    else if(!film.paused)film.pause()})},{threshold:[0,.5]}).observe(box)}
+  setBtn();
+})();
+</script>
+</body>
+</html>
