@@ -7,5 +7,5 @@
 - When a pull request is squash-merged, the merge message must not credit Claude either.
 
 ## Layout
-- `index.html` is the whole site (English and Norwegian, one page). The hero videos and posters sit next to it.
+- `index.html` is the whole site (English and Norwegian, one page). The hero is a photo slideshow built in the page; its photos are in `images/slides/`.
 - `images/` holds the hero stills, `docs/` the build prompt.
